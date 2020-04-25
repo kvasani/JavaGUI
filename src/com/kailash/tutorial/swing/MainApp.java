@@ -36,17 +36,66 @@ public class MainApp extends JFrame {
         dim.width = 50;
 
         panel.setPreferredSize(dim);
-        panel.setBackground(Color.BLUE);
+        //panel.setBackground(Color.BLUE);
+        panel.setLayout(new GridBagLayout());
 
-        JButton ch1Button = new JButton("Invoke Chapter 2 Application");
-        panel.add(ch1Button);
-        ch1Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                com.kailash.tutorial.swing.ch2.App a = new App();
-                String[] args = new String[0];
-                a.main(args);
-            }
+        GridBagConstraints gc = new GridBagConstraints();
+        gc.fill = GridBagConstraints.NONE;
+
+        /// first row ///
+        gc.weightx = 0.1;
+        gc.weighty=0.1;
+        gc.gridx=0;
+        gc.gridy=0;
+        gc.anchor = GridBagConstraints.LINE_START;
+
+        JButton ch2Button = new JButton("Invoke Chapter 2 Application");
+        panel.add(ch2Button, gc);
+
+        ch2Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch2.App a = new com.kailash.tutorial.swing.ch2.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
+        ++gc.gridy;
+
+        JButton ch3Button = new JButton("Invoke Chapter 3 Application");
+        panel.add(ch3Button, gc);
+        ch3Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch3.App a = new com.kailash.tutorial.swing.ch3.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
+        ++gc.gridy;
+
+        JButton ch4Button = new JButton("Invoke Chapter 4 Application");
+        panel.add(ch4Button, gc);
+        ch4Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch4.App a = new com.kailash.tutorial.swing.ch4.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
+        ++gc.gridy;
+
+        JButton ch5Button = new JButton("Invoke Chapter 5 Application");
+        panel.add(ch5Button, gc);
+        ch5Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch5.App a = new com.kailash.tutorial.swing.ch5.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
+        ++gc.gridy;
+
+        JButton ch6Button = new JButton("Invoke Chapter 6 Application");
+        panel.add(ch6Button, gc);
+        ch6Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch6.App a = new com.kailash.tutorial.swing.ch6.App();
+            String[] args = new String[0];
+            a.main(args);
         });
     }
 
