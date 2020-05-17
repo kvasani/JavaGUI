@@ -27,7 +27,7 @@ public class MainFrame extends JFrame {
         toolbar.setStringListener(new StringListener() {
             @Override
             public void textEmitted(String text) {
-                textPanel.appendText(text);
+                textPanel.appendText(text+"\n");
             }
         });
 
@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
         add(btn, BorderLayout.SOUTH);
 
         this.setSize(500, 500);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setVisible(true);
     }
 }

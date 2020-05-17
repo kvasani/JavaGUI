@@ -58,7 +58,7 @@ public class MainFrame extends JFrame {
 
         this.setSize(500, 500);
         this.setMinimumSize(new Dimension(400, 400));
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setVisible(true);
     }
 
