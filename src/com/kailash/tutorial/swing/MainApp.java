@@ -16,7 +16,7 @@ public class MainApp extends JFrame {
 
     public MainApp() {
         setTitle("Tutorial Application");
-        setSize(500, 750);
+        setSize(650, 650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -24,8 +24,8 @@ public class MainApp extends JFrame {
 
         JPanel p = new JPanel();
         add(p, BorderLayout.CENTER);
-
         initPanel(p);
+
     }
 
     private void initPanel(JPanel panel) {
@@ -125,7 +125,10 @@ public class MainApp extends JFrame {
             a.main(args);
         });
 
-        ++gc.gridy;
+        // start adding next set of buttons to next column
+        ++gc.gridx;
+        gc.gridy=0;
+
 
         JButton ch10Button = new JButton("Invoke Chapter 10 Application");
         panel.add(ch10Button, gc);
@@ -201,6 +204,38 @@ public class MainApp extends JFrame {
         panel.add(ch22Button, gc);
         ch22Button.addActionListener(e -> {
             com.kailash.tutorial.swing.ch22.App a = new com.kailash.tutorial.swing.ch22.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
+        // start adding next set of buttons to next column
+        ++gc.gridx;
+        gc.gridy=0;
+
+        JButton ch23Button = new JButton("Invoke Chapter 23 Application");
+        panel.add(ch23Button, gc);
+        ch23Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch23.App a = new com.kailash.tutorial.swing.ch23.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
+        ++gc.gridy;
+
+        JButton ch25Button = new JButton("Invoke Chapter 25 Application");
+        panel.add(ch25Button, gc);
+        ch25Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch25.gui.App a = new com.kailash.tutorial.swing.ch25.gui.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
+        ++gc.gridy;
+
+        JButton ch27Button = new JButton("Invoke Chapter 27 Application");
+        panel.add(ch27Button, gc);
+        ch27Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch27.gui.App a = new com.kailash.tutorial.swing.ch27.gui.App();
             String[] args = new String[0];
             a.main(args);
         });

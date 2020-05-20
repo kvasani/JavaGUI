@@ -1,10 +1,9 @@
-package com.kailash.tutorial.swing.ch22;
+package com.kailash.tutorial.swing.ch25.gui;
 
 import javax.swing.*;
 
 /**
  * Created by kailash on 3/30/20.
- * This one adds confirmation dialog box prior to quitting application
  */
 public class App {
     public static void main(String[] args) {
