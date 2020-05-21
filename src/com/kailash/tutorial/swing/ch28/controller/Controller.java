@@ -1,8 +1,10 @@
-package com.kailash.tutorial.swing.ch27.controller;
+package com.kailash.tutorial.swing.ch28.controller;
 
-import com.kailash.tutorial.swing.ch27.gui.FormEvent;
-import com.kailash.tutorial.swing.ch27.model.*;
+import com.kailash.tutorial.swing.ch28.gui.FormEvent;
+import com.kailash.tutorial.swing.ch28.model.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class Controller {
@@ -11,6 +13,7 @@ public class Controller {
     public List<Person> getPeople() {
         return db.getPeople();
     }
+
     public void addPerson(FormEvent e) {
         String name = e.getName();
         String occupation = e.getOccupation();
@@ -64,5 +67,17 @@ public class Controller {
         Person person = new Person( name, occupation, ageCategory, employmentCategory, taxId, usCitizen, genderCat);
 
         db.addPerson(person);
+    }
+
+    public void saveToFile (File file) throws IOException {
+        db.saveToFile(file);
+    }
+
+    public void loadFromFile (File file) throws IOException {
+        db.loadFromFile(file);
+    }
+
+    public void removePerson(int index) {
+        db.removePerson(index);
     }
 }

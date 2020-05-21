@@ -140,7 +140,7 @@ public class MainFrame extends JFrame {
 
                 int action = JOptionPane.showConfirmDialog(MainFrame.this, "Really Quit ??", "Confirm Exit", JOptionPane.OK_CANCEL_OPTION);
                 if (action == JOptionPane.OK_OPTION) {
-                    System.exit(0);
+                    dispose();
                 }
             }
         });

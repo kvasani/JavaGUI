@@ -16,8 +16,9 @@ public class MainFrame extends JFrame {
     private TextPanel textPanel;
     private Toolbar toolbar;
     private FormPanel formPanel;
-    private JFileChooser fileChooser;
+    private TablePanel tablePanel;
 
+    private JFileChooser fileChooser;
     private Controller controller;
 
     public MainFrame() {
@@ -28,7 +29,11 @@ public class MainFrame extends JFrame {
         textPanel = new TextPanel();
         toolbar = new Toolbar();
         formPanel = new FormPanel();
+        tablePanel = new TablePanel();
+
         controller = new Controller();
+        tablePanel.setData(controller.getPeople());
+
         fileChooser = new JFileChooser();
         fileChooser.addChoosableFileFilter( new PersonFileFilter());
 
@@ -44,12 +49,13 @@ public class MainFrame extends JFrame {
         formPanel.setFormListener(new FormListener() {
             public void formEventOccured(FormEvent e) {
                 controller.addPerson(e);
+                tablePanel.refresh();
             }
         });
 
         add(formPanel, BorderLayout.WEST);
         add(toolbar, BorderLayout.NORTH);
-        add(textPanel, BorderLayout.CENTER);
+        add(tablePanel, BorderLayout.CENTER);
 
         this.setSize(500, 500);
         this.setMinimumSize(new Dimension(400, 400));
@@ -131,7 +137,7 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int action = JOptionPane.showConfirmDialog(MainFrame.this, "Really Quit ??", "Confirm Exit", JOptionPane.OK_CANCEL_OPTION);
                 if (action == JOptionPane.OK_OPTION) {
-                    System.exit(0);
+                    dispose();
                 }
             }
         });

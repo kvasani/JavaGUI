@@ -239,6 +239,17 @@ public class MainApp extends JFrame {
             String[] args = new String[0];
             a.main(args);
         });
+
+        ++gc.gridy;
+
+        JButton ch28Button = new JButton("Invoke Chapter 28 Application");
+        panel.add(ch28Button, gc);
+        ch28Button.addActionListener(e -> {
+            com.kailash.tutorial.swing.ch28.gui.App a = new com.kailash.tutorial.swing.ch28.gui.App();
+            String[] args = new String[0];
+            a.main(args);
+        });
+
     }
 
 }
