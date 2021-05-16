@@ -1,0 +1,234 @@
+@startuml
+
+title __GUI's Class Diagram__\n
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.AgeCategory {
+            - id : int
+            - text : String
+            + AgeCategory()
+            + getId()
+            + getText()
+            + setId()
+            + setText()
+            + toString()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.App {
+            {static} + main()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.FormEvent {
+            - ageCategory : int
+            - empCat : String
+            - gender : String
+            - name : String
+            - occupation : String
+            - taxID : String
+            - usCitizen : boolean
+            + FormEvent()
+            + FormEvent()
+            + getAgeCategory()
+            + getEmploymentCategory()
+            + getGender()
+            + getName()
+            + getOccupation()
+            + getTaxID()
+            + isUsCitizen()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        interface com.kailash.tutorial.swing.ch27.gui.FormListener {
+            {abstract} + formEventOccured()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.FormPanel {
+            - ageCategoryLabel : JLabel
+            - ageList : JList
+            - citizenCheck : JCheckBox
+            - citizenLabel : JLabel
+            - empCombo : JComboBox
+            - empLabel : JLabel
+            - femaleRadio : JRadioButton
+            - genderGroup : ButtonGroup
+            - genderLabel : JLabel
+            - maleRadio : JRadioButton
+            - nameField : JTextField
+            - nameLable : JLabel
+            - occupationField : JTextField
+            - occupationLabel : JLabel
+            - okBtn : JButton
+            - taxField : JTextField
+            - taxLabel : JLabel
+            + FormPanel()
+            + layoutComponents()
+            + setFormListener()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.MainFrame {
+            - fileChooser : JFileChooser
+            + MainFrame()
+            - createMenuBar()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.PersonFileFilter {
+            + accept()
+            + getDescription()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.PersonTableModel {
+            - colNames : String[]
+            - db : List<Person>
+            + PersonTableModel()
+            + getColumnCount()
+            + getColumnName()
+            + getRowCount()
+            + getValueAt()
+            + setData()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        interface com.kailash.tutorial.swing.ch27.gui.StringListener {
+            {abstract} + textEmitted()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.TablePanel {
+            - table : JTable
+            + TablePanel()
+            + refresh()
+            + setData()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.TextPanel {
+            - textArea : JTextArea
+            + TextPanel()
+            + appendText()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.Toolbar {
+            - goodByeButton : JButton
+            - helloButton : JButton
+            + Toolbar()
+            + actionPerformed()
+            + setStringListener()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.kailash.tutorial.swing {
+    namespace ch2 {
+      namespace .gui {
+        class com.kailash.tutorial.swing.ch27.gui.Utils {
+            {static} + getFileExtenstion()
+        }
+      }
+    }
+  }
+  
+
+  com.kailash.tutorial.swing.ch27.gui.FormEvent -up-|> java.util.EventObject
+  com.kailash.tutorial.swing.ch27.gui.FormPanel -up-|> javax.swing.JPanel
+  com.kailash.tutorial.swing.ch27.gui.FormPanel o-- com.kailash.tutorial.swing.ch27.gui.FormListener : listener
+  com.kailash.tutorial.swing.ch27.gui.MainFrame -up-|> javax.swing.JFrame
+  com.kailash.tutorial.swing.ch27.gui.MainFrame o-- com.kailash.tutorial.swing.ch27.controller.Controller : controller
+  com.kailash.tutorial.swing.ch27.gui.MainFrame o-- com.kailash.tutorial.swing.ch27.gui.FormPanel : formPanel
+  com.kailash.tutorial.swing.ch27.gui.MainFrame o-- com.kailash.tutorial.swing.ch27.gui.TablePanel : tablePanel
+  com.kailash.tutorial.swing.ch27.gui.MainFrame o-- com.kailash.tutorial.swing.ch27.gui.TextPanel : textPanel
+  com.kailash.tutorial.swing.ch27.gui.MainFrame o-- com.kailash.tutorial.swing.ch27.gui.Toolbar : toolbar
+  com.kailash.tutorial.swing.ch27.gui.PersonFileFilter -up-|> javax.swing.filechooser.FileFilter
+  com.kailash.tutorial.swing.ch27.gui.PersonTableModel -up-|> javax.swing.table.AbstractTableModel
+  com.kailash.tutorial.swing.ch27.gui.TablePanel -up-|> javax.swing.JPanel
+  com.kailash.tutorial.swing.ch27.gui.TablePanel o-- com.kailash.tutorial.swing.ch27.gui.PersonTableModel : tableModel
+  com.kailash.tutorial.swing.ch27.gui.TextPanel -up-|> javax.swing.JPanel
+  com.kailash.tutorial.swing.ch27.gui.Toolbar .up.|> java.awt.event.ActionListener
+  com.kailash.tutorial.swing.ch27.gui.Toolbar -up-|> javax.swing.JPanel
+  com.kailash.tutorial.swing.ch27.gui.Toolbar o-- com.kailash.tutorial.swing.ch27.gui.StringListener : textListener
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
